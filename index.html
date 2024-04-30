@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Todo List</title>
+  </head>
+  <body class="bg-slate-950">
+    <div class="main flex-col m-auto justify-center">
+      <div
+        class="add-task mt-6 pt-6 flex flex-col justify-center items-center h-60 w-9/12 bg-slate-400 mx-auto max-sm:w-11/12"
+      >
+        <div
+          class="flex gap-10 mb-4 w-11/12 mx-10 max-sm:w-11/12 max-sm:gap-2 max-sm:mb-2"
+        >
+          <input
+            type="text"
+            placeholder="ID"
+            class="w-11 h-10 mb-4 js-client-id"
+            disabled
+          />
+          <input
+            type="text"
+            placeholder="Company name"
+            class="w-full h-10 mb-4 js-input-company"
+            disabled
+          />
+        </div>
+        <div class="flex gap-10 mb-4 w-11/12 mx-10 max-sm:w-11/12 max-sm:gap-2">
+          <input
+            type="text"
+            placeholder="Contact"
+            class="w-4/5 h-10 js-input-contact"
+            disabled
+          />
+
+          <select
+            name="country"
+            id="select-country"
+            class="w-1/5 h-10 max-sm:w-9/12"
+            disabled
+          >
+            <option value="Country">Country</option>
+            <option value="Brazil">Brazil</option>
+            <option value="England">England</option>
+            <option value="Ireland">Ireland</option>
+            <option value="Netherlands">Netherlands</option>
+          </select>
+        </div>
+
+        <div class="w-11/12 flex justify-center">
+          <button
+            class="button-add max-sm:mr-4 mr-10 w-40 h-10 bg-sky-600 rounded-lg mt-4"
+          >
+            Add
+          </button>
+          <button
+            class="button-save max-sm:mr-4 mr-10 w-40 h-10 bg-sky-600 rounded-lg mt-4"
+          >
+            Save
+          </button>
+          <button
+            class="button-edit max-sm:mr-4 mr-10 w-40 h-10 bg-sky-600 rounded-lg mt-4"
+          >
+            Edit
+          </button>
+          <button class="button-delete w-40 h-10 bg-sky-600 rounded-lg mt-4">
+            Delete
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="display-tasks mt-2 flex-row h-40 w-9/12 bg-slate-400 mx-auto justify-center max-sm:w-11/12"
+      >
+        <table class="table-auto w-11/12 text-left mx-auto">
+          <thead class="self-center">
+            <tr>
+              <th>ID</th>
+              <th>Company</th>
+              <th>Contact</th>
+              <th>Country</th>
+            </tr>
+          </thead>
+          <tbody class="js-tablelist"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
