@@ -172,6 +172,15 @@ function loadClients(index) {
 }
 
 $buttonEdit.addEventListener("click", function () {
+  if (
+    $selectCountry.value === "Country" ||
+    $inputCompany.value === "" ||
+    $inputContact.value === ""
+  ) {
+    alert("not allowed any field mt");
+    return;
+  }
+
   if (currentIndex !== null) {
     clients[currentIndex].company = $inputCompany.value;
     clients[currentIndex].contact = $inputContact.value;
