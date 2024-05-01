@@ -7,9 +7,21 @@ const $inputContact = document.querySelector(".js-input-contact");
 const $clientId = document.querySelector(".js-client-id");
 const $selectCountry = document.querySelector("#select-country");
 const $tableList = document.querySelector(".js-tablelist");
+const $displayTask = document.querySelector(".display-tasks");
 
 const clients = [];
 let id = 1;
+
+$displayTask.addEventListener("click", function (event) {
+  if (event.target === $displayTask) {
+    nonEditable();
+    buttonAddClick();
+    buttonDeleteNonClick();
+    buttonEditNonClick();
+    buttonSaveNonClick();
+    clearFields();
+  }
+});
 
 function buttonDeleteClick() {
   $buttonDelete.disabled = false;
@@ -148,10 +160,6 @@ function getTemplate(id, company, contact, country, index) {
 let currentIndex;
 
 function loadClients(index) {
-  if ($buttonAdd.disabled === true) {
-    alert("adding mode, please finish your record");
-    return;
-  }
   currentIndex = index;
   $clientId.value = clients[index].id;
   $inputCompany.value = clients[index].company;
@@ -183,8 +191,9 @@ $buttonEdit.addEventListener("click", function () {
 $buttonDelete.addEventListener("click", function () {
   if (currentIndex !== null && currentIndex < clients.length) {
     const deletedCompany = clients[currentIndex].company;
+    const deletedId = clients[currentIndex].id;
     clients.splice(currentIndex, 1);
-    alert(`Client ${deletedCompany} has been deleted`);
+    alert(`ID: ${deletedId} - Client:. ${deletedCompany} has been deleted`);
     renderList(clients);
     clearFields();
     nonEditable();
